@@ -22,7 +22,7 @@ var coffeeShop = {
 	buyDrink: function drinkBuy(drinkType) {
 		if (drinkType in coffeeShop.drinkRequirements) {
 			this.money += this.drinkRequirements[drinkType].price;
-			this.makeDrink(drinkType);
+		       // var d = makeDrink(drinkType) ;
 			console.log('coffeeShop has ' + coffeeShop.money + ' shekels');
 		} else {
 			console.log("Sorry, we don't make " + drinkType);
@@ -40,22 +40,18 @@ var coffeeShop = {
 
 	makeDrink: function(drinkType) {
 		if (drinkType in coffeeShop.drinkRequirements) {
-			if (
-				coffeeShop.beans > coffeeShop.drinkRequirements[drinkType].beansNeeded
-			) {
+			if (coffeeShop.beans > coffeeShop.drinkRequirements[drinkType].beansNeeded) {
 				coffeeShop.beans -= coffeeShop.drinkRequirements[drinkType].beansNeeded;
 				console.log('one ' + drinkType + ' on its way');
+				       // if(d==false)
+					console.log("Sorry, we don't make " + drinkType);
 			}
-		}
-		else 
-		console.log("Sorry, we don't make " + drinkType);
-
-		if (
-			coffeeShop.beans > coffeeShop.drinkRequirements[drinkType].beansNeeded ===
-			false) {
-			console.log('sorry we dont have the required amount of beans');
-			console.log(coffeeShop.beans + ' beans left');
-		}
+			else{
+				console.log('sorry we dont have the required amount of beans');
+				console.log(coffeeShop.beans + ' beans left');
+			}
+		} 
+		
 	},
 };
 
